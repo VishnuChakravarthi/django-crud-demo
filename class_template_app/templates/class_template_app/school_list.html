@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+    {% block dynamic_block %}
+
+        <ol>
+            {% for school in schools %}
+                <h2>
+                    <li><a href="{% url 'app:detail' pk=school.id %}">{{school}}</a></li>
+                </h2>
+            {% endfor %}
+        </ol>
+    
+    {% endblock %}

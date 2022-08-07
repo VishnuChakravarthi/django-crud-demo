@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    {% extends 'base.html' %}
+
+        {% block dynamic_block %}
+            <div>
+                <div>School Name : {{school.name}}</div>
+                <div>Principal Name : {{school.principal}}</div>
+                <div>Students : 
+                    <ol>
+                        {% for student in school.students.all %}
+                            <li>{{student.name}}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                <a class="btn btn-warning" href="{% url 'app:update' pk=school.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'app:delete' pk=school.id %}">Delete</a>
+            </div>
+        {% endblock %}
